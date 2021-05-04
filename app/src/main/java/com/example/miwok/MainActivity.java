@@ -14,7 +14,13 @@
  * limitations under the License.
  */
 package com.example.miwok;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,5 +31,63 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        TextView numbers = findViewById(R.id.numbers), familyMembers = findViewById(R.id.family), colors = findViewById(R.id.colors), phrases = findViewById(R.id.phrases);
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Numbers Tab Opened", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(intent);
+            }
+        });
+        familyMembers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Family Members Tab Opened", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, FamilyMembersActivity.class);
+                startActivity(intent);
+            }
+        });
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Colors Tab Opened", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(intent);
+            }
+        });
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Phrases Tab Opened", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+//    /**
+//     * this method sends an intent to open the NumbersActivity. Method is called when the Numbers TextView is clicked
+//     */
+//    public void openNumbersList(View view){
+//        // send an intent
+//        // creating an Intent object
+//        Intent intent = new Intent(this, NumbersActivity.class);
+//            startActivity(intent);
+//    }
+//    public void openFamilyMembersList(View view){
+//        //creating an Intent object
+//        Intent intent = new Intent(this, FamilyMembersActivity.class);
+//            startActivity(intent);
+//    }
+//    public void openColorsList(View view){
+//        //creating an Intent object
+//        Intent intent = new Intent(this, ColorsActivity.class);
+//            startActivity(intent);
+//    }
+//    public void openPhrasesList(View view){
+//        //creating an Intent object
+//        Intent intent = new Intent(this, PhrasesActivity.class);
+//            startActivity(intent);
+//    }
 }
